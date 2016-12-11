@@ -23,7 +23,7 @@ public final class HqRebel implements Plugin {
 
     @Override
     public String getId() {
-        return "HQRebel";
+        return "hqrebel";
     }
 
     @Override
