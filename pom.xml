@@ -22,7 +22,7 @@
                 <configuration>
                     <archive>
                         <manifestEntries>
-                            <JavaRebel-Plugin>org.zeroturnaround.javarebel.integration.pluginTemplate.PluginTemplate</JavaRebel-Plugin>
+                            <JavaRebel-Plugin>net.frozenorb.hqrebel.HqRebel</JavaRebel-Plugin>
                         </manifestEntries>
                     </archive>
                 </configuration>
@@ -37,7 +37,7 @@
         </repository>
         <repository>
             <id>zeroturnaround-repo</id>
-            <url>http://repos.zeroturnaround.com/nexus/content/repositories/zt-public-releases</url>
+            <url>https://repos.zeroturnaround.com/nexus/content/repositories/zt-public-releases/</url>
         </repository>
     </repositories>
 
@@ -49,8 +49,8 @@
         </dependency>
         <dependency>
             <groupId>org.zeroturnaround</groupId>
-            <artifactId>jr-sdk</artifactId>
-            <version>4.6.2</version>
+            <artifactId>jr-utils</artifactId>
+            <version>7.0.1</version>
         </dependency>
     </dependencies>
 </project>
