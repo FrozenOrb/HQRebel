@@ -2,26 +2,30 @@ package net.frozenorb.hqrebel;
 
 import net.frozenorb.hqrebel.listeners.CommandClassReloadListener;
 import net.frozenorb.hqrebel.listeners.ListenerClassReloadListener;
+import net.frozenorb.hqrebel.listeners.StaffMessageClassReloadListener;
 
+import org.zeroturnaround.javarebel.ClassEventListener;
 import org.zeroturnaround.javarebel.ClassResourceSource;
 import org.zeroturnaround.javarebel.Plugin;
 import org.zeroturnaround.javarebel.Reloader;
 import org.zeroturnaround.javarebel.ReloaderFactory;
 
+import java.util.Arrays;
+
 public final class HqRebel implements Plugin {
 
     @Override
     public void preinit() {
-        CommandClassReloadListener commandClassReloadListener = new CommandClassReloadListener();
-        ListenerClassReloadListener listenerClassReloadListener = new ListenerClassReloadListener();
-
         Reloader reloader = ReloaderFactory.getInstance();
 
-        reloader.addClassLoadListener(commandClassReloadListener);
-        reloader.addClassReloadListener(commandClassReloadListener);
-
-        reloader.addClassLoadListener(listenerClassReloadListener);
-        reloader.addClassReloadListener(listenerClassReloadListener);
+        for (ClassEventListener listener : Arrays.asList(
+            new CommandClassReloadListener(),
+            new ListenerClassReloadListener(),
+            new StaffMessageClassReloadListener()
+        )) {
+            reloader.addClassLoadListener(listener);
+            reloader.addClassReloadListener(listener);
+        }
     }
 
     @Override
