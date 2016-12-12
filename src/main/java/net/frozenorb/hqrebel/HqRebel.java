@@ -5,14 +5,23 @@ import net.frozenorb.hqrebel.listeners.ListenerClassReloadListener;
 
 import org.zeroturnaround.javarebel.ClassResourceSource;
 import org.zeroturnaround.javarebel.Plugin;
+import org.zeroturnaround.javarebel.Reloader;
 import org.zeroturnaround.javarebel.ReloaderFactory;
 
 public final class HqRebel implements Plugin {
 
     @Override
     public void preinit() {
-        ReloaderFactory.getInstance().addClassReloadListener(new CommandClassReloadListener());
-        ReloaderFactory.getInstance().addClassReloadListener(new ListenerClassReloadListener());
+        CommandClassReloadListener commandClassReloadListener = new CommandClassReloadListener();
+        ListenerClassReloadListener listenerClassReloadListener = new ListenerClassReloadListener();
+
+        Reloader reloader = ReloaderFactory.getInstance();
+
+        reloader.addClassLoadListener(commandClassReloadListener);
+        reloader.addClassReloadListener(commandClassReloadListener);
+
+        reloader.addClassLoadListener(listenerClassReloadListener);
+        reloader.addClassReloadListener(listenerClassReloadListener);
     }
 
     @Override
