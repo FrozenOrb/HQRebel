@@ -23,13 +23,14 @@ public final class HqRebel implements Plugin {
             new ListenerClassReloadListener(),
             new StaffMessageClassReloadListener()
         )) {
-            reloader.addClassLoadListener(listener);
+            //reloader.addClassLoadListener(listener);
             reloader.addClassReloadListener(listener);
         }
     }
 
     @Override
     public boolean checkDependencies(ClassLoader loader, ClassResourceSource resourceSource) {
+        // I'm not really sure what this does. Original comment:
         // PluginClassLoader doesn't have public access :(
         return loader.getClass().getName().equals("org.bukkit.plugin.java.PluginClassLoader");
     }
