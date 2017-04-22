@@ -10,7 +10,8 @@ public final class StaffMessageClassReloadListener implements ClassEventListener
     @Override
     public void onClassEvent(int eventType, Class<?> type) {
         ChatColor color = eventType == ClassEventListener.EVENT_LOADED ? ChatColor.GREEN : ChatColor.GOLD;
-        String message = ChatColor.GRAY + "HQRebel: " + color + type.getSimpleName();
+        String name = type.getSimpleName().isEmpty() ? type.getName() : type.getSimpleName();
+        String message = ChatColor.GRAY + "HQRebel: " + color + name;
 
         for (Player player : Bukkit.getOnlinePlayers()) {
             if (player.hasPermission("hqrebel.notify")) {
