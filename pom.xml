@@ -6,13 +6,9 @@
 
     <parent>
         <groupId>net.frozenorb</groupId>
-        <artifactId>minehq-parent</artifactId>
+        <artifactId>frozenorb-parent</artifactId>
         <version>1.0</version>
     </parent>
-
-    <properties>
-        <minehq.mavenLevel>minehq-low</minehq.mavenLevel>
-    </properties>
 
     <build>
         <plugins>
@@ -32,8 +28,8 @@
 
     <repositories>
         <repository>
-            <id>minehq-repo</id>
-            <url>http://maven.minehq.com:8081/artifactory/minehq-all/</url>
+            <id>frozenorb-repo</id>
+            <url>http://repo.frozenorb.net/repository/maven-standard/</url>
         </repository>
         <repository>
             <id>zeroturnaround-repo</id>
